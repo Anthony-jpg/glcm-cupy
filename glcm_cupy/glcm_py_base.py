@@ -58,6 +58,7 @@ class GLCMPyBase:
                 contrast += glcm[i, j] * (i - j) ** 2
                 asm += glcm[i, j] ** 2
                 mean += glcm[i, j] * i
+                entropy -= glcm[i, j] * cp.log10(glcm[i, j] + eps)
 
         for i in range(glcm.shape[0]):
             for j in range(glcm.shape[1]):
